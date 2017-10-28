@@ -1,0 +1,15 @@
+{
+  "name": "cloudportal",
+  "description": "Open Source Cloud Portal",
+  "private": false,
+  "dependencies": {
+    "express": "4.x",
+    "pug": "^2.0.0-rc.4",
+    "mongodb": "2.x"
+  },
+  "license": "Placeholder",
+  "repository":{
+    "type" : "git",
+    "url" : "https://github.com/KonradSchieban/cloudportal.git"
+  }
+}

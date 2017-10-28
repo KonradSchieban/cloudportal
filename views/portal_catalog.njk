@@ -1,0 +1,18 @@
+{% extends "base.njk" %}
+
+{% block body %}
+
+<h1>List of Cloud offerings</h1>
+
+<p>Please select the cloud service that yoou want to deploy!</p>
+
+<ul>
+{% for offering in offerings_array %}
+    <li> 
+        <h4>{{ offering.name }}</h4>
+        <p>{{ offering.description }}</p>
+    </li>
+{% endfor %}
+</u1>
+
+{% endblock %}
