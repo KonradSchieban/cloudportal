@@ -2,17 +2,27 @@
 
 {% block body %}
 
-<h1>List of Cloud offerings</h1>
+<div class="container">
+    <div class="row">
+        <h1>List of Cloud offerings</h1>
+        <p>Please select the cloud service that you want to deploy!</p>
+    </div>
+    
+    <br>
 
-<p>Please select the cloud service that yoou want to deploy!</p>
+    {% for offering in offerings_array %}
+        <div class="row">
+            <div class='col-md-4'>
+                <img class="offering-image" src="{{ offering.image }}" alt="Image for offering {{ offering.display_name }}">
+            </div>
+            <div class='col-md-8 offering-description'>
+                <h4><a href="/portal/catalog/{{ offering._id }}">{{ offering.display_name }}</a></h4>
+                <p>{{ offering.description }}</p>    
+            </div>
+        </div>
+        <hr>
+    {% endfor %}
+    
 
-<ul>
-{% for offering in offerings_array %}
-    <li> 
-        <h4>{{ offering.name }}</h4>
-        <p>{{ offering.description }}</p>
-    </li>
-{% endfor %}
-</u1>
-
+</div>
 {% endblock %}

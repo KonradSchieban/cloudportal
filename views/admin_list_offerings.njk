@@ -1,0 +1,29 @@
+{% extends "base.njk" %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <h1>List of Cloud offerings</h1>
+    </div>
+    
+    <br>
+
+    {% for offering in offerings_array %}
+        <div class="row">
+            <div class='col-md-4'>
+                <img class="offering-image" src="{{ offering.image }}" alt="Image for offering {{ offering.display_name }}">
+            </div>
+            <div class='col-md-8 offering-description'>
+                <h4><a href="/portal/catalog/{{ offering._id }}">{{ offering.display_name }}</a></h4>
+                <p>{{ offering.description }}</p>
+                <a href="/admin/catalog/{{ offering._id }}/delete" class="btn btn-primary">Delete</a>
+                <a href="/admin/catalog/{{ offering._id }}/modify" class="btn btn-default">Modify</a>
+            </div>
+        </div>
+        <hr>
+    {% endfor %}
+    
+
+</div>
+{% endblock %}
