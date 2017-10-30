@@ -3,6 +3,10 @@ var objectId    = require('mongodb').ObjectId,
 
 module.exports = function(app, offerings){
 
+    app.get('/portal', function(req,get_res){
+        get_res.render("portal/portal.njk");
+    });
+
     app.get('/portal/catalog', function(req,get_res){
     
         offerings.find({}, (err,offerings_cursor) => {

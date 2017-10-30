@@ -3,6 +3,10 @@ var objectId    = require('mongodb').ObjectId,
 
 module.exports = function(app, offerings){
 
+    app.get('/admin', function(req,get_res){
+        get_res.render("admin/admin.njk");
+    });
+
     app.get('/admin/create_offering', function(req,get_res){
         get_res.render("admin/admin_create_offering.njk");
     });
