@@ -1,15 +1,17 @@
-var express     = require( 'express' ),
-    nunjucks    = require( 'nunjucks' ),
+var express     = require('express'),
+    nunjucks    = require('nunjucks'),
     mongoClient = require('mongodb').MongoClient,
     objectId    = require('mongodb').ObjectId,
-    bodyParser  = require('body-parser');
+    bodyParser  = require('body-parser'),
+    config      = require('./config.json');
 
 var app         = express();
 
 // Run mongod service using >mongod.exe --dbpath \src\mongodbs\
-var mongo_url = 'mongodb://localhost:27017/portal';
+var mongo_url = config.mongo_url;
 var db;
 var offerings;
+
 mongoClient.connect(mongo_url, (err, dbase) => {
     if (err) return cb(err);
     console.log("Connnected correctly to the database server.");
