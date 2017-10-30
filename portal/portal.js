@@ -1,5 +1,5 @@
 var objectId    = require('mongodb').ObjectId,
-bodyParser  = require('body-parser');
+    bodyParser  = require('body-parser');
 
 module.exports = function(app, offerings){
 
@@ -14,7 +14,7 @@ module.exports = function(app, offerings){
             offerings_cursor.toArray((err, offerings_array) => {
                 console.log(offerings_array);
     
-                get_res.render("portal_catalog.njk",
+                get_res.render("portal/portal_catalog.njk",
                     {
                         "title": "Cloud Portal",
                         "offerings_array": offerings_array
@@ -40,7 +40,7 @@ module.exports = function(app, offerings){
                 }
     
                 var offering_item = offering_res[0];
-                get_res.render("offering.njk",
+                get_res.render("portal/offering.njk",
                 {
                     "title": "Cloud Portal",
                     "offering_name": offering_item.name,

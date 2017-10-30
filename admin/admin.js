@@ -4,7 +4,7 @@ var objectId    = require('mongodb').ObjectId,
 module.exports = function(app, offerings){
 
     app.get('/admin/create_offering', function(req,get_res){
-        get_res.render("admin_create_offering.njk");
+        get_res.render("admin/admin_create_offering.njk");
     });
 
     app.post('/admin/create_offering', function(req,post_res){
@@ -35,10 +35,8 @@ module.exports = function(app, offerings){
                 return;
             }
                     
-            offerings_cursor.toArray((err, offerings_array) => {
-                console.log(offerings_array);
-    
-                get_res.render("admin_list_offerings.njk",
+            offerings_cursor.toArray((err, offerings_array) => {  
+                get_res.render("admin/admin_list_offerings.njk",
                     {
                         "title": "Cloud Portal (Admin)",
                         "offerings_array": offerings_array
@@ -78,7 +76,7 @@ module.exports = function(app, offerings){
                 }
     
                 var offering_item = offering_res[0];
-                get_res.render("admin_modify_offering.njk",
+                get_res.render("admin/admin_modify_offering.njk",
                 {
                     "title": "Cloud Portal",
                     "offering_name": offering_item.name,
@@ -94,7 +92,6 @@ module.exports = function(app, offerings){
     app.post('/admin/catalog/:offering_id/modify', function(req,post_res){
     
         var offering_id = req.params.offering_id;
-        console.log("Offering ID:" + offering_id)
     
         var item = {
             'name': req.body.name,
